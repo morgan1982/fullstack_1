@@ -6,9 +6,6 @@ const nodePort = process.env.PORT || 5000;
 
 // Routes
 require('./api/index.js')(app);
-// app.get('/', (req, res) => {
-//     res.send("hi there");
-// })
 
 if (process.env.NODE_ENV === 'production') {
     // looks for the asset inside build

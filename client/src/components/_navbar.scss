@@ -1,19 +1,91 @@
+$background: rgba(224, 242, 242, .8);
+
 .navbar {
     text-align: center;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 900;
-    border-bottom: 1px solid #AAB7B8;
-    box-shadow: 0 5px 10px #A6ACAF;
-    background: rgba(224, 242, 242, .8);
+    background: $background;
 
     .logo {
-  
+        margin-top: 20px;
     }
 
     nav {
         position: absolute;
+        background: $background;
+        width: 100%;
+        text-align: left;
+        // display: none;
+        // opacity: 0;
+        transform: scale(0);
+        transform-origin: top;
+        // transition: scale .3s ease-in-out;
+        transition: transform .2s ease-in;
     }
+
+    nav li {
+        margin-bottom: 1em;
+        margin-left: 1em;
+    }
+
+    nav a {
+        color: $gray;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+
+        &:hover {
+            color: #636e72;
+        }
+    }
+
+    .nav-toggle:checked ~ nav {
+        display: block;
+        // opacity: 100;
+        transform: scale(1);
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-toggle-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: 1em;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        display: block;
+        background: #2d3436;
+        height: 2px;
+        width: 2em;
+        border-radius: 2px;
+        position: relative;
+    }
+
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+       content: '';
+       position: absolute;
+    }
+
+    .nav-toggle-label span::before {
+        bottom: 7px;
+    }
+
+    .nav-toggle-label span::after {
+        top: 7px;
+    }
+
+
+
 
 }

@@ -286,7 +286,9 @@ template {
 
 body {
   font-family: "Raleway", sans-serif, sans-serif;
+  color: #636e72;
   font-weight: 400;
+  font-size: .875rem;
   margin: 0; }
 
 nav,
@@ -295,8 +297,14 @@ nav ul li {
   margin: 0;
   padding: 0; }
 
+nav ul {
+  list-style: none; }
+
 h1 {
   margin: 0; }
+
+a {
+  text-decoration: none; }
 
 .navbar {
   text-align: center;
@@ -304,8 +312,53 @@ h1 {
   top: 0;
   width: 100%;
   z-index: 900;
-  border-bottom: 1px solid #AAB7B8;
-  box-shadow: 0 5px 10px #A6ACAF;
   background: rgba(224, 242, 242, 0.8); }
+  .navbar .logo {
+    margin-top: 20px; }
   .navbar nav {
+    position: absolute;
+    background: rgba(224, 242, 242, 0.8);
+    width: 100%;
+    text-align: left;
+    transform: scale(0);
+    transform-origin: top;
+    transition: transform .2s ease-in; }
+  .navbar nav li {
+    margin-bottom: 1em;
+    margin-left: 1em; }
+  .navbar nav a {
+    color: #A7A7A7;
+    text-transform: uppercase;
+    font-size: 1.2rem; }
+    .navbar nav a:hover {
+      color: #636e72; }
+  .navbar .nav-toggle:checked ~ nav {
+    display: block;
+    transform: scale(1); }
+  .navbar .nav-toggle {
+    display: none; }
+  .navbar .nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center; }
+  .navbar .nav-toggle-label span,
+  .navbar .nav-toggle-label span::before,
+  .navbar .nav-toggle-label span::after {
+    display: block;
+    background: #2d3436;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative; }
+  .navbar .nav-toggle-label span::before,
+  .navbar .nav-toggle-label span::after {
+    content: '';
     position: absolute; }
+  .navbar .nav-toggle-label span::before {
+    bottom: 7px; }
+  .navbar .nav-toggle-label span::after {
+    top: 7px; }

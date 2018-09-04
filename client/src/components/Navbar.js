@@ -6,6 +6,7 @@ const navbar = (props) => {
     return (
         <div className="navbar">
             <h1 className="logo">THERAPIST KANELOPOLO</h1>
+            <input type="checkbox" id="nav-toggle" className="nav-toggle" />
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>
@@ -13,7 +14,10 @@ const navbar = (props) => {
                     <li><Link to="/contact">Contact</Link></li>
                     <li><Link to="/about">About</Link></li>
                 </ul>
-            </nav>            
+            </nav>
+{            <label for="nav-toggle" className="nav-toggle-label">
+                <span></span>
+            </label>}
         </div>
 
         )

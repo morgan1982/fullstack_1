@@ -1,0 +1,26 @@
+@import "typography";
+@import "vendors/normalize";
+
+*,
+*:before,
+*::after {
+    box-sizing: border-box;
+}
+
+// &background: rgba()
+
+body {
+    font-family: $ff-s, sans-serif;
+    font-weight: $fw-n;
+    margin: 0;
+}
+
+nav,
+nav ul,
+nav ul li {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    margin: 0;
+}

@@ -30,7 +30,7 @@ const test = (props) => {
             </section>
 
             <section className="about-me">
-                <img src={crazydoc} alt="mad doctor" />
+                {/*<img src={crazydoc} alt="mad doctor" />*/}
                 <h1 className="about-title"><span>Dr</span>. Kanelopolo</h1>
                 <h2 className="about-subtitle">Psycologist</h2>
                 <div className="about-text">

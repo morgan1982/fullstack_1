@@ -1,10 +1,10 @@
 import React from 'react';
 import BodyLayout from '../UI/BodyLayout';
 
-import brain1 from '../../Assets/Images/brain1.jpg';
-import brain2 from '../../Assets/Images/brain2.jpg';
-import crazydoc from '../../Assets/Images/doctorDrill.jpg';
-import patient from '../../Assets/Images/examine1.jpg';
+// import brain1 from '../../Assets/Images/brain1.jpg';
+// import brain2 from '../../Assets/Images/brain2.jpg';
+// import crazydoc from '../../Assets/Images/doctorDrill.jpg';
+// import patient from '../../Assets/Images/examine1.jpg';
 
 const test = (props) => {
 

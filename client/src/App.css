@@ -291,6 +291,10 @@ body {
   font-size: .875rem;
   margin: 0; }
 
+.App {
+  max-width: 1000px;
+  margin: 0 auto; }
+
 nav,
 nav ul,
 nav ul li {
@@ -333,7 +337,6 @@ a {
     .navbar nav a:hover {
       color: #636e72; }
   .navbar .nav-toggle:checked ~ nav {
-    display: block;
     transform: scale(1); }
   .navbar .nav-toggle {
     display: none; }
@@ -362,3 +365,39 @@ a {
     bottom: 7px; }
   .navbar .nav-toggle-label span::after {
     top: 7px; }
+  @media screen and (min-width: 800px) {
+    .navbar {
+      display: grid;
+      grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr; }
+      .navbar .logo {
+        grid-column: 2 / span 1; }
+      .navbar nav {
+        all: unset;
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center; }
+      .navbar nav ul {
+        display: flex; }
+        .navbar nav ul li {
+          margin-left: 3em;
+          margin-bottom: 0; }
+        .navbar nav ul a {
+          position: relative; }
+        .navbar nav ul a::before {
+          content: '';
+          position: absolute;
+          height: 2px;
+          background: #636e72;
+          left: 0;
+          right: 0;
+          top: 1.2em;
+          transform: scale(0, 1);
+          transform-origin: right;
+          opacity: 0;
+          transition: transform 0.2s ease-in-out; }
+        .navbar nav ul a:hover::before {
+          transform: scale(1, 1);
+          opacity: 1; }
+      .navbar .nav-toggle-label {
+        display: none; } }

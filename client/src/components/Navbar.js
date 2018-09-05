@@ -15,7 +15,7 @@ const navbar = (props) => {
                     <li><Link to="/about">About</Link></li>
                 </ul>
             </nav>
-{            <label for="nav-toggle" className="nav-toggle-label">
+{            <label htmlFor="nav-toggle" className="nav-toggle-label">
                 <span></span>
             </label>}
         </div>

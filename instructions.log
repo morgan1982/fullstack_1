@@ -1,5 +1,8 @@
 // to deploy
 
->heroku login // logs in to heroku
+/>heroku login // logs in to heroku
+
+
+to undo modified files --> />git reset --hard HEAD 
 
 

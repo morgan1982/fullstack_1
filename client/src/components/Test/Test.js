@@ -19,13 +19,13 @@ const test = (props) => {
 
             <section className="welcome">
                 <div className="welcome-left">
-                    <img src={brain1} alt="man thinking under a tree" />
+                    {/*<img src={brain1} alt="man thinking under a tree" />*/}
                 </div>
                 <div className="welcome-middle">
                     <h1><span>W</span>elcome to your Therapy</h1>
                 </div>
                 <div className="welcome-right">
-                    <img src={brain2} alt="thinking" />
+                    {/*<img src={brain2} alt="thinking" />*/}
                 </div>
             </section>
 
@@ -45,7 +45,7 @@ const test = (props) => {
 
                     <div className="portofolio-items">
                         <figure className="portofolio-item featured">
-                            <img src={patient} alt="patient" />
+                            {/*<img src={patient} alt="patient" />*/}
                             <figcaption>
                                 <h2 className="portofolio-title">Examine the patient</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, iste dolorum in. Est, quia, tempora! Deleniti facere reiciendis ipsa ratione atque, nesciunt quisquam esse repellat nemo aperiam. Aspernatur, expedita, unde.</p>

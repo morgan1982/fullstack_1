@@ -10,7 +10,6 @@
 // variables
 $shadow: 0 5px 10px #A6ACAF;
 
-// &background: rgba()
 
 body {
     font-family: $ff-s, sans-serif;
@@ -19,9 +18,23 @@ body {
     font-size: .875rem;
     margin: 0;
 }
+
 .App {
     max-width: 1000px;
     margin: 0 auto;
+    // border: 1px dotted orange;
+}
+
+.home {
+    height: 200vh;
+}
+
+.bodyLayout {
+    margin-top: 110px;
+}
+
+span {
+    color: black;
 }
 
 nav,

@@ -295,6 +295,15 @@ body {
   max-width: 1000px;
   margin: 0 auto; }
 
+.home {
+  height: 200vh; }
+
+.bodyLayout {
+  margin-top: 110px; }
+
+span {
+  color: black; }
+
 nav,
 nav ul,
 nav ul li {
@@ -316,7 +325,8 @@ a {
   top: 0;
   width: 100%;
   z-index: 900;
-  background: rgba(224, 242, 242, 0.8); }
+  background: rgba(224, 242, 242, 0.8);
+  box-shadow: 1px 3px 15px gray; }
   .navbar .logo {
     margin-top: 20px; }
   .navbar nav {
@@ -401,3 +411,34 @@ a {
           opacity: 1; }
       .navbar .nav-toggle-label {
         display: none; } }
+
+.panel .panel-heading {
+  cursor: pointer; }
+  .panel .panel-heading:hover {
+    color: #ffbe76; }
+
+.panel .panel-collapse {
+  overflow: hidden;
+  transition: height 0.3s ease-out; }
+
+.panel .panel-body {
+  border: none; }
+
+.panel h2 {
+  margin-top: 5px; }
+
+.home {
+  margin: 8em 3em; }
+
+footer {
+  position: relative; }
+  footer p:last-child {
+    font-size: 0.8em;
+    font-weight: 700; }
+  footer span {
+    margin: 0 2px;
+    background: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block; }

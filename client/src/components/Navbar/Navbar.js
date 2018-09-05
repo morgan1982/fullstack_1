@@ -13,6 +13,7 @@ const navbar = (props) => {
                     <li><Link to="/blog">Blog</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
                     <li><Link to="/about">About</Link></li>
+                    <li><Link to="/test">Test</Link></li>
                 </ul>
             </nav>
 {            <label htmlFor="nav-toggle" className="nav-toggle-label">

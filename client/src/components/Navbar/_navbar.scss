@@ -7,6 +7,7 @@ $background: rgba(224, 242, 242, .8);
     width: 100%;
     z-index: 900;
     background: $background;
+    box-shadow: 1px 3px 15px gray;
 
     .logo {
         margin-top: 20px;
@@ -93,7 +94,7 @@ $background: rgba(224, 242, 242, .8);
         .logo {
             grid-column: 2 / span 1;
         }
-        
+
         nav {
             all: unset;
             grid-column: 3 / 4;
@@ -133,9 +134,9 @@ $background: rgba(224, 242, 242, .8);
             a:hover {
 
                 &::before{
-                    // transition: opacity 0.2s linear;            
+                    // transition: opacity 0.2s linear;
                     transform: scale(1, 1);
-                    opacity: 1;               
+                    opacity: 1;
                 }
             }
         }

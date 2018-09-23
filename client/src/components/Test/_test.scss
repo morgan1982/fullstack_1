@@ -1,7 +1,55 @@
 .hero {
 
 
+}
 
+.container-layout {
+    // height: 300px;
+    background-color: #748792;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .item {
+        margin: 5px;
+        width: 150px;
+        height: 5em;
+        background: #b5afb7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .item-1, .item-3 {
+        // flex: 0 0 25%;
+    }
+    .item-2 {
+        width: 250px;
+    }
+    .item-3 {
+
+    }
+}
+.welcome {
+
+    img {
+        // height: 100%;
+        max-width: 100%;
+        // height: auto;
+    }
+}
+
+.portofolio {
+
+    .container {
+        width: 80%;
+
+        h1 {
+            margin-left: 1em;
+            position: sticky;
+            top: 5em;
+        }
+    }
 }
 
 
@@ -23,6 +71,22 @@ footer {
         border-radius: 50%;
         display: inline-block;
     }
+}
+
+.about-subtitle {
+
+
+        span {
+            display: block;
+            margin-top: 0.2em;
+        }
+        span:nth-child(1) {
+            font-size: 1.2em;
+        }
+
+        span:nth-child(2) {
+            font-size: 0.8em;
+        }
 }
 
 

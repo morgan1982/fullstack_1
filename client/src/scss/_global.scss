@@ -11,6 +11,10 @@
 $shadow: 0 5px 10px #A6ACAF;
 
 
+// dimensions
+$navheight: 70px;
+
+
 body {
     font-family: $ff-s, sans-serif;
     color: #636e72;
@@ -20,8 +24,10 @@ body {
 }
 
 .App {
-    max-width: 1000px;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
+    // max-width: 1000px;
+    // margin: 0 auto;
     // border: 1px dotted orange;
 }
 
@@ -53,4 +59,9 @@ h1 {
 
 a {
     text-decoration: none;
+}
+
+figure {
+    padding: 0;
+    margin: 0;
 }

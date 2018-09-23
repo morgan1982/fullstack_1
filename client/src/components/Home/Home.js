@@ -1,5 +1,6 @@
 import React from 'react';
 import CollapsingContent from '../CollapsingContent/CollapsingContent';
+import doc from '../../Assets/Images/doctorDrill.jpg';
 
 const home = (props) => {
 
@@ -9,6 +10,7 @@ const home = (props) => {
     return (
 
         <div className="home">
+            <img src={doc} alt="doctor" />
             <CollapsingContent title={titles[0]}>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat explicabo debitis unde dicta itaque blanditiis, consequuntur, non, neque mollitia necessitatibus cum doloremque nam similique fuga laborum quam, harum possimus suscipit odio aspernatur ullam quasi delectus voluptate id. Fugiat commodi ab pariatur suscipit et, cumque dignissimos maiores fugit, harum quibusdam modi?</p>
             </CollapsingContent>

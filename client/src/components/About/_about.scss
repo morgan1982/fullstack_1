@@ -1,0 +1,46 @@
+.about {
+    display: flex;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    .container-left {
+        // border: 2px dotted red;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+    figure {
+        box-sizing: border-box;
+        border: 1px dotted gray;
+        flex: 0 0 30%;
+        margin: 10px 0;
+        // padding: 50px 0px;
+
+        @media(max-width: 992px) {
+            flex: 0 0 50%;
+        }
+
+        @media(max-width: 768px) {
+            flex: 0 0 100%;
+        }
+
+    }
+
+    .container-right {
+        background-image: url("./Assets/Images/brain2.jpg");
+        background-position: center;
+        // border: 2px dotted blue;
+        position: sticky;
+        top: $navheight;
+        height: 100vh;
+        flex: 0 0 400px;
+    }
+
+
+}
+

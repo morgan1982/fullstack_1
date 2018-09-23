@@ -4,13 +4,13 @@ import { Route } from 'react-router-dom';
 
 import Layout from './components/Layout';
 import Home from './components/Home/Home';
+import About from './components/About/About';
 import Test from './components/Test/Test';
 
 
 // const Landing = () => <h2 className="home">Landing</h2>;
 const Blog = () => <h2>Blog</h2>;
 const Contact = () => <h2>Contact</h2>;
-const About = () => <h2>About</h2>;
 
 
 class App extends Component {

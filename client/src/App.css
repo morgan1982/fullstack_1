@@ -292,8 +292,8 @@ body {
   margin: 0; }
 
 .App {
-  max-width: 1000px;
-  margin: 0 auto; }
+  margin: 0;
+  padding: 0; }
 
 .home {
   height: 200vh; }
@@ -319,14 +319,19 @@ h1 {
 a {
   text-decoration: none; }
 
+figure {
+  padding: 0;
+  margin: 0; }
+
 .navbar {
   text-align: center;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 900;
   background: rgba(224, 242, 242, 0.8);
-  box-shadow: 1px 3px 15px gray; }
+  box-shadow: 1px 3px 15px gray;
+  height: 70px; }
   .navbar .logo {
     margin-top: 20px; }
   .navbar nav {
@@ -344,8 +349,12 @@ a {
     color: #A7A7A7;
     text-transform: uppercase;
     font-size: 1.2rem; }
-    .navbar nav a:hover {
-      color: #636e72; }
+    .navbar nav a span {
+      color: inherit;
+      transition: color 0.4s ease; }
+    .navbar nav a:hover span {
+      font-weight: bold;
+      color: black; }
   .navbar .nav-toggle:checked ~ nav {
     transform: scale(1); }
   .navbar .nav-toggle {
@@ -397,7 +406,7 @@ a {
         .navbar nav ul a::before {
           content: '';
           position: absolute;
-          height: 2px;
+          height: 1px;
           background: #636e72;
           left: 0;
           right: 0;
@@ -430,6 +439,32 @@ a {
 .home {
   margin: 8em 3em; }
 
+.container-layout {
+  background-color: #748792;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .container-layout .item {
+    margin: 5px;
+    width: 150px;
+    height: 5em;
+    background: #b5afb7;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .container-layout .item-2 {
+    width: 250px; }
+
+.welcome img {
+  max-width: 100%; }
+
+.portofolio .container {
+  width: 80%; }
+  .portofolio .container h1 {
+    margin-left: 1em;
+    position: sticky;
+    top: 5em; }
+
 footer {
   position: relative; }
   footer p:last-child {
@@ -442,3 +477,41 @@ footer {
     height: 10px;
     border-radius: 50%;
     display: inline-block; }
+
+.about-subtitle span {
+  display: block;
+  margin-top: 0.2em; }
+
+.about-subtitle span:nth-child(1) {
+  font-size: 1.2em; }
+
+.about-subtitle span:nth-child(2) {
+  font-size: 0.8em; }
+
+.about {
+  display: flex; }
+  .about img {
+    max-width: 100%;
+    height: auto; }
+  .about .container-left {
+    flex-grow: 1;
+    flex-wrap: wrap;
+    display: flex; }
+  .about figure {
+    box-sizing: border-box;
+    border: 1px dotted gray;
+    flex: 0 0 30%;
+    margin: 10px 0; }
+    @media (max-width: 992px) {
+      .about figure {
+        flex: 0 0 50%; } }
+    @media (max-width: 768px) {
+      .about figure {
+        flex: 0 0 100%; } }
+  .about .container-right {
+    background-image: url("./Assets/Images/brain2.jpg");
+    background-position: center;
+    position: sticky;
+    top: 70px;
+    height: 100vh;
+    flex: 0 0 400px; }

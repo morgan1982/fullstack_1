@@ -1,8 +1,199 @@
+☼ setup user in linux server
+☼ add the public ssh key
+☼ enable the firewall
+☼ install nginx
+☼ install certbot
+☼ install node
+☼ install pm2 // to run the app as a process
+
+
 // to deploy
 
 />heroku login // logs in to heroku
 
 
-to undo modified files --> />git reset --hard HEAD 
+to undo modified files --> />git reset --hard HEAD
+
+
+
+
+-- digital ocean
+
+
+login as root
+
+-- create user
+
+>adduser username
+
+-- to remove a user
+switch to root
+>sudo su root
+-delete the user
+>userdel username
+
+-- add user to the sudo group
+
+> usermod -aG sudo username
+
+-- login as the user
+
+>sudo su - username
+
+-- SSH --
+
+-- create the ssh directory to the home folder
+
+>mkdir ~/.ssh
+
+-- create the key
+
+>chmod 700 ~/.ssh/authorized_keys
+>nano ~/.ssh/authorized_keys
+
+copy the bublic key in one line and save (ctrl-x to exit)
+>chmod 600 ~/.ssh/authorized_keys
+
+sudo service ssh restart
+
+-- login is ready
+
+
+-- GIT & SSH --
+
+to add remote
+>git add live ssh://username@domain.com/var/repo/site.git
+to remove remote
+>git remove live ssh://username@domain.com/var/repo/site.git
+
+to list remotes
+>git remote -v
+
+
+►to start the ssh agent
+>eval $(ssh-agent -s)
+
+►to add ssh key to agent
+>ssh-add ~/.ssh/id_rsa
+
+to verify configuration
+>ssh -T username@ip
+
+
+ -- setup the remote server --
+
+• add a group
+> sudo addgroup groupname
+
+• add user to group
+>sudo adduser username groupname
+
+• create the folder
+> sudo mkdir export/git && cd export/git && mkdir example.git
+
+• change the group ownership to be the desired group -- if project exists has to e done recursively -R
+>sudo chgrp groupname foldername
+
+• change the permissions (g+rws) s -> sticky flag (apply to subfolders)
+>sudo chmod g+rws
+
+• cd to the repository folder and create the remote
+>git init --bare --shared
+
+
+
+
+
+
+-- remove acess to root user
+
+>sudo nano /etc/ssh/sshd_config
+-- change PermitRootAcess to no & PasswordAuth no
+>sudo systemctl reload sshd
+
+download winscp
+
+install pm2 to run the application as a process
+
+run the app with pm2
+
+>pm2 start index.js
+
+-- for the domainname go to enomcentral
+
+ns1.digitalocean.com
+ns2.digitalocean.com
+ns3.digitalocean.com
+
+
+-- to gitital ocean
+-- networking tab
+--add a domain
+
+put the name to the input
+
+go to A
+
+hostname @
+ipadress
+
+
+-- to run on port 80
+
+sudo apt-get install libcap2-bin
+
+to change the port
+
+sudo setcap cap_net_bind_service=+ep `readlink -f \`which node\``
+
+
+-- FIREWALL --
+
+to show list > sudo ufw app list
+to enable the firewall > sudo ufw enable
+
+-- NGINX --
+
+allow only http traffic -- sudo ufw allow 'Nginx HTTP'
+
+ to show the allowed apps  >sudo ufw status
+
+► to stop the server >sudo systemctl stop nginx
+► to start nginx >sudo systemctl start nginx
+
+► to disable nginx from starting on startup
+>sudo systemctl disable nginx
+► to enable
+>sudo systemctl enable nginx
+
+-- secure nginx with letsencrypt --
+
+► install certbot
+>sudo add-apt-repository ppa:certbot/certbot
+>sudo apt-get install certbot
+
+► to check nginx for sytnax errors
+>sudo nginx -t
+► to restart the server
+>sudo systemctl restart nginx
+
+§ have to read about ssl
+
+► install build-essential // nesseseray for some packages
+>apt-get install build-essential
+
+
+-- ENVIROMENT VARIABLES --
+
+►set enviroment variables with export
+>export NODE_ENV="production"
+
+• show environment variables
+>printenv
+
+• to set env vars system wide
+>cd etc/environenment
+>sudo nano environment
+write the variable
 
 

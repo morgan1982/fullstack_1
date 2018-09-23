@@ -2,12 +2,13 @@ $background: rgba(224, 242, 242, .8);
 
 .navbar {
     text-align: center;
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 900;
     background: $background;
     box-shadow: 1px 3px 15px gray;
+    height: 70px;
 
     .logo {
         margin-top: 20px;
@@ -36,8 +37,19 @@ $background: rgba(224, 242, 242, .8);
         text-transform: uppercase;
         font-size: 1.2rem;
 
+        span {
+            color: inherit;
+            transition: color 0.4s ease;
+
+        }
+
         &:hover {
-            color: #636e72;
+            // color: #636e72;
+
+            span {
+                font-weight: bold;
+                color: black;
+            }
         }
     }
 
@@ -106,8 +118,6 @@ $background: rgba(224, 242, 242, .8);
         }
         nav ul {
             display: flex;
-            // border: 1px dotted black;
-            // justify-content: flex-end; // helper
 
             li {
                 margin-left: 3em;
@@ -121,7 +131,7 @@ $background: rgba(224, 242, 242, .8);
             a::before {
                 content: '';
                 position: absolute;
-                height: 2px;
+                height: 1px;
                 background: #636e72;
                 left: 0;
                 right: 0;

@@ -6,7 +6,7 @@ const layout = (props) => (
 
         <Aux>
             <Navbar />
-            {props.children}
+                {props.children}
         </Aux>
 
     )

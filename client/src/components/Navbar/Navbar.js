@@ -1,15 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../Assets/Images/perception.png';
 
-const navbar = (props) => {
+class  Navbar extends Component {
 
-    return (
+    constructor(props) {
+
+        super(props);
+        this.state = {
+            toggled: false
+        }
+    }
+
+    toggleHandler = () => {
+        this.setState((prevState) => {
+            return { toggled: !prevState.toggled }
+        })
+    }
+
+
+
+
+    render () {
+
+        const toggle = this.state.toggled ? "active" : "pasive";
+
+
+
+        return (
+
         <div className="navbar">
             <img className="logo" src={logo} alt="psycology logo" />
             <h1 className="banner"><span>Know</span>Psyself</h1>
-            <input type="checkbox" id="nav-toggle" className="nav-toggle" />
-            <nav>
+            <div className="toggle-container" onClick={this.toggleHandler}>
+                <div className="nav-toggle"></div>
+            </div>
+
+            <nav className={toggle}>
                 <ul>
                     <li><Link to="/"><span>H</span>ome</Link></li>
                     <li><Link to="/blog"><span>B</span>log</Link></li>
@@ -18,16 +45,13 @@ const navbar = (props) => {
                     <li><Link to="/test"><span>T</span>est</Link></li>
                 </ul>
             </nav>
-            <label htmlFor="nav-toggle" className="nav-toggle-label">
-                <span></span>
-            </label>
         </div>
 
-        )
-
+            )
+    }
 }
 
 
 
 
-export default navbar;
+export default Navbar;

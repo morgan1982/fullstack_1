@@ -11,7 +11,9 @@ const home = (props) => {
 
         <section className="home">
             <div className="hero">
-                <h1>Welcome to your therapy</h1>
+                <h1><span className="hero-main">Welcome </span>
+                    <span className="hero-sub">to your therapy</span>
+                </h1>
             </div>
             <img src={doc} alt="doctor" />
             <CollapsingContent title={titles[0]}>

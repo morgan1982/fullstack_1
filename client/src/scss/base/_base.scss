@@ -22,10 +22,6 @@ body {
     // padding: 3rem; // padding of the body
     font-size: 1.6rem; // main font size of non declared fonts
     box-sizing: border-box;
-
-    @media screen and (max-width: 900px) {
-        // font-size: 1rem;
-    }
 }
 
 span {

@@ -11,6 +11,7 @@ const Footer = (props) => {
         <div className="footer">
             <a href="#"><img src={facebook} alt="facebook logo" /></a>
             <a href="#"><img src={linkedin} alt="linkedin logo" /></a>
+            <p className="copywrite">&copy; Entr<span></span>py 2018</p>
         </div>
         )
 

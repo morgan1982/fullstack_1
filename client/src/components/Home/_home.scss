@@ -1,7 +1,24 @@
 .home {
-    margin: 8em 3em;
+    // margin: 8em 3em;
 
     img {
         height: 20rem;
+    }
+
+
+    .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // border: 1px dotted #333; // helper
+        height: 100vh;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 1.5rem;
+        letter-spacing: .2rem;
+
+        h1 {
+            transform: translateY(-10rem);
+        }
     }
 }

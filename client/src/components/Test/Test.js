@@ -150,14 +150,6 @@ const test = (props) => {
                     </label>
                 </form>
             </section>
-
-            <footer>
-                <p>Follow me Now!</p>
-                <div className="social-icons">
-
-                </div>
-                <p className="copywrite">&copy; Entr<span></span>py 2018</p>
-            </footer>
         </BodyLayout>
 
         )

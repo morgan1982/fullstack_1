@@ -9,7 +9,10 @@ const home = (props) => {
 
     return (
 
-        <div className="home">
+        <section className="home">
+            <div className="hero">
+                <h1>Welcome to your therapy</h1>
+            </div>
             <img src={doc} alt="doctor" />
             <CollapsingContent title={titles[0]}>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat explicabo debitis unde dicta itaque blanditiis, consequuntur, non, neque mollitia necessitatibus cum doloremque nam similique fuga laborum quam, harum possimus suscipit odio aspernatur ullam quasi delectus voluptate id. Fugiat commodi ab pariatur suscipit et, cumque dignissimos maiores fugit, harum quibusdam modi?</p>
@@ -20,7 +23,7 @@ const home = (props) => {
             <CollapsingContent title={titles[2]}>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur explicabo officiis, iste ea a molestiae saepe laboriosam velit recusandae? Nostrum nesciunt tempore commodi fuga optio odit omnis placeat, iure a, dolorum quidem enim id saepe. Veritatis cupiditate quidem harum similique odio debitis, sed accusantium voluptate libero at! Dolore magnam non rem tempora quos quibusdam! Perferendis, voluptate, ex! Itaque natus maxime similique dolore provident cupiditate, veniam impedit magni! Veritatis ratione, perspiciatis! Ipsam numquam rem incidunt perspiciatis labore voluptas dignissimos, ab similique maxime reiciendis, praesentium officiis accusamus dolor, dolore consequuntur earum. Modi magni omnis nihil ipsa eveniet a ab quam nemo eius!</p>
             </CollapsingContent>
-        </div>
+        </section>
         )
 }
 

@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../Assets/Images/perception.png';
 
 const navbar = (props) => {
 
     return (
         <div className="navbar">
-            <h1 className="logo">THERAPIST</h1>
+            <img className="logo" src={logo} alt="psycology logo" />
+            <h1 className="banner"><span>Know</span>Psyself</h1>
             <input type="checkbox" id="nav-toggle" className="nav-toggle" />
             <nav>
                 <ul>

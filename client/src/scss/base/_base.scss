@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%; /* allows the user to zoom in*/
+}
+
+body {
+    font-family: $ff-s, sans-serif;
+    color: #636e72;
+    font-weight: $fw-n;
+
+    padding: 3rem; // padding of the body
+    font-size: 1.6rem; // main font size
+    box-sizing: border-box;
+}
+
+span {
+    color: black;
+}
+
+nav ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+// check this one!
+.bodyLayout {
+    margin-top: 110px;
+}
+

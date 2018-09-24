@@ -1,8 +1,15 @@
-@import "scss/global";
+@import "scss/vendors/normalize";
+
+
+@import "scss/abstracts/variables";
+@import "scss/base/typography";
+@import "scss/base/base";
+
+
 @import "components/Navbar/navbar";
 @import "components/CollapsingContent/collapsing";
 @import "components/Home/home";
 @import "components/Test/test";
 @import "components/About/about";
-
+@import "components/Footer/footer";
 

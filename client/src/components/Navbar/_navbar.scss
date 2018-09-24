@@ -6,12 +6,16 @@ $background: rgba(224, 242, 242, .8);
     top: 0;
     width: 100%;
     z-index: 900;
-    background: $background;
-    box-shadow: 1px 3px 15px gray;
-    height: 70px;
+    // background: $background;
+    box-shadow: $shadow-main;
+    // height: 7rem;
 
     .logo {
-        margin-top: 20px;
+        height: 5rem;
+    }
+
+    .banner {
+        margin-top: 2rem;
     }
 
     nav {
@@ -35,7 +39,7 @@ $background: rgba(224, 242, 242, .8);
     nav a {
         color: $gray;
         text-transform: uppercase;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
 
         span {
             color: inherit;
@@ -101,27 +105,35 @@ $background: rgba(224, 242, 242, .8);
     @media screen and (min-width: 800px) {
 
         display: grid;
-        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+        grid-template-columns: minmax(5rem, 1fr) 1fr auto minmax(200px, 3fr);
 
         .logo {
-            grid-column: 2 / span 1;
+            grid-column: 1 / span 1;
         }
 
         nav {
             all: unset;
-            grid-column: 3 / 4;
+            grid-column: 4 / 5;
             display: flex;
             // border: 1px dotted hotpink; // helper
             justify-content: flex-end;
-            align-items: center;
+            align-items: flex-end;
+            margin-right: 2rem;
+            margin-bottom: 1.2rem;
 
         }
         nav ul {
             display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
 
             li {
-                margin-left: 3em;
                 margin-bottom: 0;
+            }
+
+            li:not(:last-child) {
+                margin-right: 2rem;
+                // margin-bottom: 0;
             }
 
             a {

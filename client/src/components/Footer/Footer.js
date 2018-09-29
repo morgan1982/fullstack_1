@@ -1,6 +1,6 @@
 import React from 'react';
-import facebook from '../../Assets/Images/facebook-letter-logo.svg';
-import linkedin from '../../Assets/Images/linkedin-logo.svg';
+// import facebook from '../../Assets/Images/facebook-letter-logo.svg';
+// import linkedin from '../../Assets/Images/linkedin-logo.svg';
 
 
 const Footer = (props) => {
@@ -9,8 +9,10 @@ const Footer = (props) => {
     return (
 
         <div className="footer">
-            <a href="#"><img src={facebook} alt="facebook logo" /></a>
-            <a href="#"><img src={linkedin} alt="linkedin logo" /></a>
+            <div>
+                <a href="#">f</a>
+                <a href="#">in</a>
+            </div>
             <p className="copywrite">&copy; Entr<span></span>py 2018</p>
         </div>
         )

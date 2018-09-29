@@ -137,6 +137,9 @@ go to A
 hostname @
 ipadress
 
+-- to show server ip address
+>ip addr show
+
 
 -- to run on port 80
 
@@ -147,10 +150,15 @@ to change the port
 sudo setcap cap_net_bind_service=+ep `readlink -f \`which node\``
 
 
--- FIREWALL --
+-- FIREWALL UFW --
 
 to show list > sudo ufw app list
 to enable the firewall > sudo ufw enable
+
+
+• to list with nubers >sudo ufw status numbered
+
+• to allow from ip to certain port>sudo ufw allow from <ip> to any port <port>
 
 -- NGINX --
 
@@ -197,3 +205,150 @@ allow only http traffic -- sudo ufw allow 'Nginx HTTP'
 write the variable
 
 
+-- MYSQL --
+
+•sudo apt-get update
+•sudo apt-get install mysql-server
+
+security script
+>mysql_secure_installation
+
+-- access from firewall
+
+check!
+>iptables -A INPUT -i rth0 -p tcp -m tcp --dport=3306 -j ACCEPT
+>iptables-save
+
+
+• to change default password policies
+
+◘ to check the policies
+mysql> SHOW VARIABLES LIKE 'validate_password%';
+
+◘ to change
+mysql> SET GLOBAL <rule>
+
+
+
+check the configuration
+>netstat -tunelp
+
+• to test if the server is running
+systemctl status mysql.service
+
+• to start the server
+
+sudo systemctl start mysql.
+
+
+○ to acess the sql shell
+
+mysql -u root -p
+
+
+-- connection with ssh tunnel
+
+• putty
+ssh -> tunnels ->
+
+source port - 3306
+destination -> 127.0.0.1:3306
+
+go to etc/mysql/mysqld/mysqld.conf.cnf
+
+edit my.conf -->
+> bind adress = server-ip-adress (instead of localhost)
+
+--restart the service to make the changes to take effect
+
+>service mysql restart
+
+
+create user
+mysql>create user '<name>'@'%' identified by '<pass>';
+mysql>grant all on *.* to '<name>'@'%';
+
+
+-- QUERIES --
+
+
+ -- insert --
+insert into posts ('name', ....) values ('john', ...);
+
+• update
+
+UPDATE customers
+SET email = 'test@gmail'
+WHERE id = 3;
+
+• delete
+
+DELETE FROM customers WHERE id = 3;
+
+• alter
+
+ALTER TABLE customers
+ADD testcolumn varvhar(255);
+
+ALTER TABLE customers
+MODIFY COLUMN testcol int(11);
+
+
+• select
+
+SELECT * FROM customers;
+
+SELECT name FROM customers WHERE id = 3;
+
+SELECT name FROM customers ORDER BY  name ASC; (DESC)
+
+
+--- indexes --
+
+CREATE INDEX Cindex
+ON customers(city);
+
+drop index  cindex
+ON customers(city);
+
+
+-- RELATIONS --
+
+create table orders (
+id int not null auto_increment,
+ordernumber int,
+productId int,
+customerId int,
+orderDate DATETIME default CURRENT_TIMESTAMP,
+primary key(id),
+FOREIGN KEY(customerId) REFERENCES customers(id),
+FOREIGN KEY(prdductId) REFERENCES products(id)
+);
+
+
+
+-- inner joins --
+
+select customers.firstName, customers.lastName, orders.ordernumber
+FROM customers
+INNER JOIN orders
+ON customers.id = orders.customerId
+ORDER BY customers.lastName;
+
+
+
+-- RESTFUL API --
+
+constrains
+○ client server architecture
+○ stateless
+○ cacheability
+○ layered system
+○ uniform interface
+○ code on demand
+
+
+
+ -- SQL --
+
+ ► to check the design of the table > DESCRIBE <table>;

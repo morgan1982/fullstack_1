@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POST FORM</title>
+    <style>
+        .container {
+            padding: 15px;
+            font-family: arial, sans-serif;
+        }
+
+        h1 {
+            border-bottom: 2px solid #49788CFF;
+            line-height: 3rem;
+        }
+
+        form label {
+            display: block;
+            margin: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: arial, sans-serif;
+        }
+        .buttons-container {
+            width: 300px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        form button {
+            margin-top: 1rem;
+            display: block;
+            border: 1px solid #777;
+            background-color: #18B9E654;
+            padding:  5px 15px;
+            font-weight: bold;
+            border-radius:  4px;
+            }
+        form button:hover {
+            background: dodgerblue;
+        }
+        button:nth-last-of-type(1) {
+            background-color: #1EE0B7FF;
+        }
+        button:nth-last-of-type(1):hover {
+            background-color: #13EB9D8E;
+        }
+
+        #add {
+            background-color: orange;
+        }
+
+        #add:hover {
+            background-color: #F0A823BF;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+        }
+        .container  h1 {
+            grid-column: 1 / span 2;
+        }
+        .container .fin {
+            grid-column: 2 / 3;
+        }
+        textarea {
+            width: 90%;
+            border-color: #3879C6FF;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Post</h1>
+        <form action="api" method="POST">
+            <label>
+                title
+            </label>
+            <input type="text" name="title">
+            <label >content</label>
+            <textarea class="final" style="display: none; white-space: pre-wrap;" name="body" rows="10" columns="10"></textarea>
+            <textarea id="content" cols="30" rows="20"></textarea>
+            <div class="buttons-container">
+                <button class="add">preview</button>
+                <button class="make-bold">bolder</button>
+                <button class="make-italic">make italic</button>
+                <button class="decorate-back">decorate back</button>
+                <button class="underline">underline</button>
+                <button class="sub-header">h2</button>
+
+                <button type="submit">submit</button>
+            </div>
+
+        </form>
+        <div class="fin"></div>
+
+    </div>
+
+    <script>
+
+
+        let addBtn = document.querySelector(".add");
+        let boldBtn = document.querySelector('.make-bold');
+        let italBtn = document.querySelector('.make-italic');
+        let subHeader = document.querySelector('.sub-header');
+        let underline = document.querySelector('.underline');
+        let decorateBack = document.querySelector('.decorate-back');
+
+
+
+
+        italBtn.addEventListener("click", (e) => {e.preventDefault(); modify("i")}, false);
+        subHeader.addEventListener("click", (e) => {e.preventDefault(); modify("h2")}, false);
+        underline.addEventListener("click", (e) => {e.preventDefault(); modify("u")}, false);
+        decorateBack.addEventListener("click", (e) => {e.preventDefault();
+                                                         decorate("#bfd7b5")}, false);
+
+
+
+        boldBtn.addEventListener("click", (e) => {
+                                                e.preventDefault();
+                                                modify("strong")}, false);
+        addBtn.addEventListener("click", addSpace, false);
+
+        function addSpace(e)
+        {
+            e.preventDefault();
+
+            let text = document.querySelector("#content").value;
+            text = text.replace(/ /g, "&nbsp;")
+            text = text.replace(/\n/g, "<br>\n");
+            document.querySelector(".final").value = text;
+            modText = document.querySelector(".final").value;
+            final = document.querySelector('.fin');
+            final.innerHTML = modText;
+            return false;
+        }
+
+        function selectedText() {
+            let text = "";
+            if (window.getSelection) {
+                text = window.getSelection().toString();
+            } else if (document.selection && document.type != "Control") {
+                text = document.selection.createRange().text;
+            }
+            return text;
+        }
+
+        function getInputSelection(el) {
+            var start = 0, end = 0, normalizedValue, range,
+                textInputRange, len, endRange;
+
+            if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+                start = el.selectionStart;
+                end = el.selectionEnd;
+            } else {
+                range = document.selection.createRange();
+
+                if (range && range.parentElement() == el) {
+                    len = el.value.length;
+                    normalizedValue = el.value.replace(/\r\n/g, "\n");
+
+                    // Create a working TextRange that lives only in the input
+                    textInputRange = el.createTextRange();
+                    textInputRange.moveToBookmark(range.getBookmark());
+
+                    // Check if the start and end of the selection are at the very end
+                    // of the input, since moveStart/moveEnd doesn't return what we want
+                    // in those cases
+                    endRange = el.createTextRange();
+                    endRange.collapse(false);
+
+                    if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+                        start = end = len;
+                    } else {
+                        start = -textInputRange.moveStart("character", -len);
+                        start += normalizedValue.slice(0, start).split("\n").length - 1;
+
+                        if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+                            end = len;
+                        } else {
+                            end = -textInputRange.moveEnd("character", -len);
+                            end += normalizedValue.slice(0, end).split("\n").length - 1;
+                        }
+                    }
+                }
+            }
+
+    return {
+        start: start,
+        end: end
+        };
+    }
+
+    function decorate (color) {
+
+
+    let text = selectedText();
+
+        if (text != "") {
+            let newText = `<div style='background-color:${color}'>${text}</div>`;
+
+            let area = document.querySelector("#content");
+            let selectedArea = getInputSelection(area), val = area.value;
+            area.value =  val.slice(0, selectedArea.start) + newText + val.slice(selectedArea.end);
+
+
+        }
+
+
+
+    return false;
+
+    }
+
+    function modify(arg) {
+
+
+
+    let text = selectedText();
+    if (text != "") {
+        let newText = `<${arg}>${text}</${arg}>`;
+
+        let area = document.querySelector("#content");
+        let selectedArea = getInputSelection(area), val = area.value;
+        area.value =  val.slice(0, selectedArea.start) + newText + val.slice(selectedArea.end);
+
+
+    }
+
+
+
+    return false;
+}
+
+
+    </script>
+</body>
+</html>

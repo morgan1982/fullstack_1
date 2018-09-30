@@ -423,6 +423,13 @@ a {
         justify-content: space-around;
         align-items: flex-end;
         padding-right: 6rem; }
+        .navbar nav ul li:last-child {
+          display: none; }
+          .navbar nav ul li:last-child.logged {
+            display: inline-block; }
+          .navbar nav ul li:last-child a {
+            font-weight: 700;
+            color: #dd2d4a; }
         .navbar nav ul li {
           margin-bottom: 0; }
         .navbar nav ul li:not(:last-child) {

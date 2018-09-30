@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser  = require('body-parser');
+const cookieSession = require('cookie-session');
 
 const postsRoutes = require('./api/routes/posts');
 
@@ -25,7 +26,7 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers',
-               'Origin, X-Requested-With, Content-Type, Accept, Authorization'); 
+               'Origin, X-Requested-With, Content-Type, Accept, Authorization');
                 //adjusts the response to accept cross origin requests
 
     if (req.method === 'OPTIONS') {

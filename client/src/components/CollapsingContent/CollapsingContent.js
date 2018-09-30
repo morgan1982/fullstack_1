@@ -13,6 +13,7 @@ class CollapsingContent extends Component {
     }
 
 
+
     handleToggle = (e) => {
         e.preventDefault();
 

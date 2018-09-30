@@ -159,6 +159,19 @@ $background: rgba(224, 242, 242, .8);
             align-items: flex-end;
             padding-right: 6rem;
 
+            li:last-child {
+                  display: none;
+
+
+                  &.logged {
+                    display: inline-block;
+                  }
+                    a {
+                  font-weight: 700;
+                  color: #dd2d4a;
+                    }
+                }
+
             li {
                 margin-bottom: 0;
             }

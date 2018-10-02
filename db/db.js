@@ -1,14 +1,15 @@
 const mysql = require('mysql');
+const { database } = require('../config/keys.js');
 // const util = require('util');
 
 
 const pool  = mysql.createPool({
 
     connectionLimit: 10,
-    host: '138.68.90.69',
-    user: 'thanos',
-    password: '12345678',
-    database: 'knowpsyself'
+    host: database.host,
+    user: database.user,
+    password: database.password,
+    database: database.database
 
 })
 

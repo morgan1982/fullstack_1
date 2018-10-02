@@ -30,7 +30,7 @@ pool.getConnection((err, connection) => {
     }
 })
 
-// PREPARE POOL FOR ASYNC AWAIT
+// PREPARE POOL FOR ASYNC AWAIT dfd 
 // pool.query = util.promisify(pool.query);
 
 module.exports = pool;

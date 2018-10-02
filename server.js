@@ -2,9 +2,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser  = require('body-parser');
-const cookieSession = require('cookie-session');
 
 const postsRoutes = require('./api/routes/posts');
+const AuthRoutes = require('./api/routes/auth');
+
 
 const nodePort = process.env.PORT || 5000;
 
@@ -40,6 +41,7 @@ app.use((req, res, next) => {
 
 // -- ROUTING --
 app.use('/api', postsRoutes);
+app.use('/auth', AuthRoutes);
 
 // old api
 // require('./api/index.js')(app);
@@ -64,4 +66,6 @@ app.use((error, req, res, next) => { // catches server errors globally
 })
 
 
+
+// SERVER INIT
 app.listen(nodePort, () => console.log(`running on port: ${nodePort}` ));

@@ -10,8 +10,8 @@ const Footer = (props) => {
 
         <div className="footer">
             <div>
-                <a href="#">f</a>
-                <a href="#">in</a>
+                <a href="http://facebook.com">f</a>
+                <a href="http://linkedin.com">in</a>
             </div>
             <p className="copywrite">&copy; Entr<span></span>py 2018</p>
         </div>

@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "engines": {
-    "node": "8.11.1",
-    "npm": "5.0.3"
-  },
+  "engines": {},
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
@@ -18,12 +15,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.3",
+    "joi": "^13.7.0",
+    "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.11",
     "mysql": "^2.16.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "tunnel-ssh": "^4.1.4",
     "util": "^0.11.0"
   },

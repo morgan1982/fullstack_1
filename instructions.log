@@ -352,3 +352,12 @@ constrains
  -- SQL --
 
  ► to check the design of the table > DESCRIBE <table>;
+
+
+ --sublime terminal cmder
+
+ {
+    "terminal": "C:\\cmder\\Cmder.exe",
+    "parameters": ["/START", "%CWD%"]
+}
+

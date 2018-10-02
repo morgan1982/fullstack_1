@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Redirect } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+import * as actions from './actions';
+
 import Layout from './components/Layout';
 import Home from './components/Home/Home';
 import About from './components/About/About';
@@ -101,10 +104,15 @@ class App extends Component {
     posts: [
       {title: 'encapsulator'},
       {title: 'redux'},
-      {title: 'node'},
+      {title: 'nodejs'},
       {title: 'the new dawn'}
 
       ]
+  }
+  componentDidMount() {
+    this.props.fetchUser((resolution) => {
+      console.log(resolution);
+    } );
   }
 
 
@@ -129,4 +137,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, actions)(App);

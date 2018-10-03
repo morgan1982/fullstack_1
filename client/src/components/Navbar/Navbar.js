@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../Assets/Images/perception.png';
+import { connect } from 'react-redux';
 
 class  Navbar extends Component {
 
@@ -19,13 +20,31 @@ class  Navbar extends Component {
         })
     }
 
+    checkAuth () {
+        let logger = null
+        if (this.props.auth) {
+            logger = this.props.auth.message;
+            console.log("inside check auth", logger)
+        }
+        switch(logger) {
+            case null:
+                return 'Stiil logging'
+                break;
+            case "false":
+                return 'loggedout'
+                break;
+            default:
+                return 'logged'
 
+        }
+    }
 
 
     render () {
 
+
         const toggle = this.state.toggled ? "active" : "pasive";
-        const adminLogged = this.state.logged ? "logged" : "";
+        // const adminLogged = this.state.logged ? "logged" : "";
 
 
 
@@ -45,7 +64,7 @@ class  Navbar extends Component {
                     <li><Link to="/contact"><span>C</span>ontact</Link></li>
                     <li><Link to="/about"><span>A</span>bout</Link></li>
                     <li><Link to="/test"><span>T</span>est</Link></li>
-                    <li className={ adminLogged }><Link to="/admin"><span>A</span>dmin</Link></li>
+                    <li className={ this.checkAuth() }><Link to="/admin"><span>A</span>dmin</Link></li>
                 </ul>
             </nav>
         </div>
@@ -54,7 +73,13 @@ class  Navbar extends Component {
     }
 }
 
+function mapStateToProps ({ auth }) {
+
+    return { auth };
+
+}
 
 
 
-export default Navbar;
+
+export default connect(mapStateToProps, null)(Navbar);

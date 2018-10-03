@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
@@ -10,6 +11,8 @@ import Home from './components/Home/Home';
 import About from './components/About/About';
 import Test from './components/Test/Test';
 import Admin from './components/Admin/Admin';
+
+
 
 
 
@@ -122,6 +125,7 @@ class App extends Component {
 
     return (
       <div className="App">
+      <Router>
         <Layout>
             <Route exact path="/" render={() => <Home posts={posts}/>}/>
             <Route path="/blog" component={Blog}/>
@@ -131,7 +135,7 @@ class App extends Component {
             <Route path="/login" component={Login}/>
             <PrivateRoute path="/admin" component={Admin}/>
         </Layout>
-
+      </Router>
       </div>
     );
   }

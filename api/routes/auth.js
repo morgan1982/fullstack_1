@@ -13,7 +13,7 @@ const passportJwt = passport.authenticate('jwt', { session: false })
 
 router.get('/', (req, res, next) => {
     res.status(200).json({
-        message: "OK"
+        message: "true"
     })
 })
 

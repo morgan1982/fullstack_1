@@ -6,5 +6,5 @@ export const fetchUser = (callback) => async dispatch => {
 
     callback(res);
 
-    dispatch({ type: CHECK_AUTH, payload: res });
+    dispatch({ type: CHECK_AUTH, payload: res.data });
 }

@@ -11,8 +11,7 @@ import Home from './components/Home/Home';
 import About from './components/About/About';
 import Test from './components/Test/Test';
 import Admin from './components/Admin/Admin';
-
-
+import LoginMaster from './components/Auth/Login';
 
 
 
@@ -133,6 +132,7 @@ class App extends Component {
             <Route path="/about" component={About}/>
             <Route path="/test" component={Test}/>
             <Route path="/login" component={Login}/>
+            <Route path="/loginmaster" component={LoginMaster}/>
             <PrivateRoute path="/admin" component={Admin}/>
         </Layout>
       </Router>

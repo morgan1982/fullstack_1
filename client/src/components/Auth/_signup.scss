@@ -1,0 +1,36 @@
+.form-container {
+    width: 90%;
+    margin: 1rem auto;
+
+    h2 {
+        margin-bottom: 2rem;
+        padding: .8rem;
+        border-bottom: 2px solid #333;
+    }
+
+    .form-group {
+        display: grid;
+        grid-template-columns: 20% 1fr;
+        padding: 1rem;
+        // flex-direction: row;
+        // justify-content: space-between;
+    }
+    .form-control {
+        width: 20rem;
+    }
+
+    button {
+        padding: 1rem;
+        border: 1px solid #333;
+        border-radius: .3rem;
+    }
+
+    button:hover {
+        box-shadow: $shadow-main;
+    }
+
+    button:active {
+        box-shadow: none;
+        border: none;
+    }
+}

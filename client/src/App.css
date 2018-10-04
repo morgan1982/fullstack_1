@@ -602,3 +602,26 @@ a {
     font-weight: 700;
     color: black;
     text-align: center; }
+
+.form-container {
+  width: 90%;
+  margin: 1rem auto; }
+  .form-container h2 {
+    margin-bottom: 2rem;
+    padding: .8rem;
+    border-bottom: 2px solid #333; }
+  .form-container .form-group {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    padding: 1rem; }
+  .form-container .form-control {
+    width: 20rem; }
+  .form-container button {
+    padding: 1rem;
+    border: 1px solid #333;
+    border-radius: .3rem; }
+  .form-container button:hover {
+    box-shadow: 0.1rem 0.3rem 1.5rem rgba(0, 0, 0, 0.2); }
+  .form-container button:active {
+    box-shadow: none;
+    border: none; }

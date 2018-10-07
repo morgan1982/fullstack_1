@@ -5,7 +5,6 @@ import { Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import * as actions from './actions';
-
 import Layout from './components/Layout';
 import Home from './components/Home/Home';
 import About from './components/About/About';
@@ -14,9 +13,9 @@ import Admin from './components/Admin/Admin';
 import LoginMaster from './components/Auth/Login';
 
 
-
 const Blog = () => <h2>Blog</h2>;
 const Contact = () => <h2>Contact</h2>;
+
 
 
 
@@ -131,7 +130,7 @@ class App extends Component {
             <Route path="/contact" component={Contact}/>
             <Route path="/about" component={About}/>
             <Route path="/test" component={Test}/>
-            <Route path="/login" component={Login}/>
+            <Route path="/login" component={LoginMaster}/>
             <Route path="/loginmaster" component={LoginMaster}/>
             <PrivateRoute path="/admin" component={Admin}/>
         </Layout>

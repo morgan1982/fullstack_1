@@ -8,3 +8,10 @@ export const fetchUser = (callback) => async dispatch => {
 
     dispatch({ type: CHECK_AUTH, payload: res.data });
 }
+
+export const signUpUser = (gredentials, callback) => async dispatch => {
+    const res = await axios.post('/auth/signUpTest', gredentials);
+    console.log('inside the submit action', res);
+    callback(res);
+
+}

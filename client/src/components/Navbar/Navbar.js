@@ -24,7 +24,7 @@ class  Navbar extends Component {
         let logger = null
         if (this.props.auth) {
             logger = this.props.auth.message;
-            console.log("inside check auth", logger)
+            // console.log("inside check auth", logger)
         }
         switch(logger) {
             case null:

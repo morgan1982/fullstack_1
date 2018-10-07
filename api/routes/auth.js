@@ -3,12 +3,12 @@ const router = express.Router();
 const passport = require('passport');
 const passportConf = require('../../passport');
 
-
 const { validateBody, schemas } = require('../../helpers/routeHelpers');
 const UserController = require('../../controllers/users');
 
 const passportSignIn = passport.authenticate('local', { session: false });
-const passportJwt = passport.authenticate('jwt', { session: false })
+const passportJwt = passport.authenticate('jwt', { session: false });
+
 
 
 router.get('/', (req, res, next) => {
@@ -31,9 +31,17 @@ router.post('/signout', (req, res, next) => {
 
 router.get('/secret',passportJwt, (req, res, next) => {
 
-    UserController.secret(req, res, next);
+  UserController.secret(req, res, next);
     // res.status(200).send("ok")
 })
+
+router.post('/signUpTest', (req, res, next) => {
+
+  console.log('inside the signup testing route', req.body);
+  res.status('200').json({ message: 'ok' });
+})
+
+
 
 
 module.exports = router;

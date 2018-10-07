@@ -6,7 +6,6 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 
 
-
 const { token_key } = require('./config/keys');
 const pool = require('./db/db');
 
@@ -20,11 +19,11 @@ passport.use(new JwtStrategy({
 
         // find the user specified in token_key
         const sql = 'SELECT id FROM users WHERE id=?';
-        pool.query(sql, [payload.sub], (err, rows, field) => {// payload.sub is the userid from jwt
+        pool.query(sql, [payload.sub], (err, rows) => {// payload.sub is the userid from jwt
             if (rows.length === 0) {
                 return done(null, false); // if users does not exists
             }
-            console.log("--inside passport user query", rows);
+            console.log('--inside passport user query', rows);
             done(null, rows) // if the user exists
         })
     }catch(error) {
@@ -39,7 +38,7 @@ passport.use(new LocalStrategy({
 }, async (user, password, done) => {
 
         try {
-            const sql = "SELECT id, userName, pass FROM users WHERE userName= ?"
+            const sql = 'SELECT id, userName, pass FROM users WHERE userName= ?';
 
             pool.query(sql, [user], async (err, rows, fields) => {
                 if (err) throw new Error(err);
@@ -65,5 +64,5 @@ passport.use(new LocalStrategy({
 
     }
 
-))
+));
 

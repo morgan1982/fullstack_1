@@ -1,0 +1,12 @@
+[ignore]
+
+[include]
+<PROJECT_ROOT>/src/
+<PROJECT_ROOT>/client/
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

@@ -23,7 +23,7 @@ module.exports = {
 
             const {user, password } = req.value.body;
             // check if user exist
-            let sql = "SELECT * FROM users WHERE userName= ? || pass= ?";
+            let sql = 'SELECT * FROM users WHERE userName= ? || pass= ?';
 
             await pool.query(sql, [user, password], (err, rows, fields) => {
                     if (err) throw new Error(err);
@@ -32,7 +32,7 @@ module.exports = {
 
                     _hash(password).then(pass => {
 
-                        sql = "INSERT INTO users (userName, pass) VALUES (?, ?)";
+                        sql = 'INSERT INTO users (userName, pass) VALUES (?, ?)';
                         pool.query(sql, [user, pass], (err, rows, fields) => {
                                 if (err) throw new Error(err);
                                 let { insertId } = rows;

@@ -1,15 +1,5 @@
 {
-  "libs": [
-    "browser",
-    "react",
-    "ecma5",
-    "ecma6"
-  ],
-  "plugins": {
-     "node": {},
-     "modules": {},
-     "requirejs": {},
-     "es_modules": {},
-     "jasmine": {}
-  }
+    "plugins": {
+        "node": {}
+    }
 }

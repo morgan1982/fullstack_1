@@ -28,8 +28,8 @@ class  Navbar extends Component {
         }
         switch(logger) {
             case null:
-                return 'Stiil logging'
-                break;
+                // return 'Stiil logging'
+                // break;
             case "false":
                 return 'loggedout'
                 break;

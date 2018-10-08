@@ -112,7 +112,7 @@ class App extends Component {
   }
   componentDidMount() {
     this.props.fetchUser((resolution) => {
-      console.log(resolution);
+      // console.log(resolution);
     } );
   }
 

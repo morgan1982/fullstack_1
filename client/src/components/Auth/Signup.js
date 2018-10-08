@@ -26,11 +26,11 @@ class SignUp extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        this.setState({ isLoading: true });
+        this.setState({ isLoading: true }); // disables the button 
         const { userName, password } = this.state;
         const gredentials = { user: userName, password };
         this.props.signUpUser(gredentials, (resFromAction) => {
-          console.log('inside the client after the action', resFromAction);
+            console.log('inside the client after the action', resFromAction);
         }).then(
           () => { this.setState({ isLoading: false }) }, // seems that is running if no error
           error => this.setState({ error })
@@ -39,6 +39,7 @@ class SignUp extends Component {
 
 
     render () {
+
 
       if (this.state.error !== null) {
         console.log(Object.keys(this.state.error));

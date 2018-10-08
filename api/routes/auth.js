@@ -35,10 +35,13 @@ router.get('/secret',passportJwt, (req, res, next) => {
     // res.status(200).send("ok")
 })
 
-router.post('/signUpTest', (req, res, next) => {
+router.post('/signUpTest', validateBody(schemas.authSchema), (req, res, next) => {
 
-  console.log('inside the signup testing route', req.body);
-  res.status('200').json({ message: 'ok' });
+    setTimeout(() => {
+      console.log('inside the signup testing route', req.body);
+      res.status('200').json({ message: 'ok' });
+  }, 5000);
+
 })
 
 

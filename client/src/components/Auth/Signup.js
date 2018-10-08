@@ -5,16 +5,19 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 import timezones from './timezones';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+
 
 class SignUp extends Component {
 
 
     state = {
-        userName: "",
-        password: "",
-        passwordConfirmation: "",
-        email: ""
+        userName: '',
+        password: '',
+        passwordConfirmation: '',
+        email: '',
+        error: null,
+        isLoading: false
 
 }
     handleChange = (e) => {
@@ -23,16 +26,24 @@ class SignUp extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        // console.log(this.state);
+        this.setState({ isLoading: true });
         const { userName, password } = this.state;
         const gredentials = { user: userName, password };
         this.props.signUpUser(gredentials, (resFromAction) => {
-          console.log("inside the client after the action", resFromAction);
-        });
+          console.log('inside the client after the action', resFromAction);
+        }).then(
+          () => { this.setState({ isLoading: false }) }, // seems that is running if no error
+          error => this.setState({ error })
+        );
     }
 
 
     render () {
+
+      if (this.state.error !== null) {
+        console.log(Object.keys(this.state.error));
+
+      }
 
         const options = map(timezones, (value, key) => {
             return <option key={value} value={value}>{key}</option>
@@ -46,11 +57,12 @@ class SignUp extends Component {
 
                 <div className="form-group">
                     <label className="control-label">Username</label>
-                    <input className="form-control"
-                           type="text"
-                           name="userName"
-                           value={this.state.userName}
-                           onChange={this.handleChange} />
+                    <input
+                        className="form-control"
+                        type="text"
+                        name="userName"
+                        value={this.state.userName}
+                        onChange={this.handleChange} />
                 </div>
 
                 <div className="form-group">
@@ -95,7 +107,7 @@ class SignUp extends Component {
 
 
                 <div className="form-group">
-                    <button onClick={this.onSubmit}>Sign up</button>
+                    <button disabled={this.state.isLoading} onClick={this.onSubmit}>Sign up</button>
                 </div>
             </div>
             )
@@ -105,7 +117,7 @@ class SignUp extends Component {
 
 SignUp.propTypes = {
  // signUpUser: React.PropTypes.func.isRequired;
-}
+};
 
 
 export default connect(null, actions)(SignUp);

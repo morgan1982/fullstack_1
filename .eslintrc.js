@@ -30,7 +30,8 @@ module.exports = {
         "no-unexpected-multiline": "warn",
         "indent": [
             "warn",
-            2, {
+            4,
+            {
                 "FunctionDeclaration": { "parameters": 1, "body": 1 }
             }
         ],

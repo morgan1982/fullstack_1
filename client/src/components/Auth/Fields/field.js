@@ -1,18 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const textField = (props) => {
-	
+const textField = ({ label, type, name, value, changed }) => {
+
 	return (
-	<div>
-		<label className="control-label">{props.label}</label>
+	<div className="form-group">
+		<label className="control-label">{label}</label>
 		<input
 			className="form-control"
-			type={props.type}
-			name={props.name}
-			onChange={props.changed}
-			value={props.value}/> 
+			type={type}
+			name={name}
+			onChange={(e) => changed(e)}
+			value={value}/>
 	</div>
 	)
+}
+
+textField.propTypes = {
+    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    changed: PropTypes.func.isRequired,
+
+
 }
 
 export default textField;

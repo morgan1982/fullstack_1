@@ -23,7 +23,7 @@ module.exports = {
 
             const {user, password } = req.value.body;
             // check if user exist
-            let sql = 'SELECT * FROM users WHERE userName= ? || pass= ?';
+            let sql = 'SELECT * FROM users WHERE userName= ? || pass= ?'; // pass is hashed inside database
 
             await pool.query(sql, [user, password], (err, rows, fields) => {
                     if (err) throw new Error(err);

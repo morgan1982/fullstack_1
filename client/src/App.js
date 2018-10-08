@@ -11,6 +11,7 @@ import About from './components/About/About';
 import Test from './components/Test/Test';
 import Admin from './components/Admin/Admin';
 import LoginMaster from './components/Auth/Login';
+import SignUp from './components/Auth/Signup';
 
 
 const Blog = () => <h2>Blog</h2>;
@@ -131,7 +132,7 @@ class App extends Component {
             <Route path="/about" component={About}/>
             <Route path="/test" component={Test}/>
             <Route path="/login" component={LoginMaster}/>
-            <Route path="/loginmaster" component={LoginMaster}/>
+            <Route path="/signup" component={SignUp} />
             <PrivateRoute path="/admin" component={Admin}/>
         </Layout>
       </Router>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { map } from 'lodash';
 
 import { connect } from 'react-redux';
@@ -6,6 +7,8 @@ import * as actions from '../../actions';
 
 import timezones from './timezones';
 import PropTypes from 'prop-types';
+
+import TextField from './Fields/field';
 
 
 class SignUp extends Component {
@@ -17,7 +20,8 @@ class SignUp extends Component {
         passwordConfirmation: '',
         email: '',
         error: null,
-        isLoading: false
+        isLoading: false,
+        redirect: false
 
 }
     handleChange = (e) => {
@@ -26,19 +30,27 @@ class SignUp extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        this.setState({ isLoading: true }); // disables the button 
+        this.setState({ isLoading: true }); // disables the button
         const { userName, password } = this.state;
         const gredentials = { user: userName, password };
         this.props.signUpUser(gredentials, (resFromAction) => {
             console.log('inside the client after the action', resFromAction);
         }).then(
-          () => { this.setState({ isLoading: false }) }, // seems that is running if no error
+          () => {
+            this.setState({ isLoading: false,
+                            redirect: true })
+
+             }, // seems that is running if no error
           error => this.setState({ error })
         );
     }
 
 
     render () {
+
+      if (this.state.redirect) {
+        return <Redirect to='/'/>
+      }
 
 
       if (this.state.error !== null) {
@@ -56,42 +68,33 @@ class SignUp extends Component {
             <div className="form-container">
                 <h2>Sign Up for Administrative Preveledges</h2>
 
-                <div className="form-group">
-                    <label className="control-label">Username</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        name="userName"
-                        value={this.state.userName}
-                        onChange={this.handleChange} />
-                </div>
+                <TextField
+                    label="Username"
+                    type="text"
+                    name="userName"
+                    value={this.state.userName}
+                    changed={this.handleChange} />
 
-                <div className="form-group">
-                    <label className="control-label">Password</label>
-                    <input className="form-control"
-                           type="text"
-                           name="password"
-                           onChange={this.handleChange}
-                           value={this.state.password} />
-                </div>
+                <TextField
+                    label="Password"
+                    type="text"
+                    name="password"
+                    value={this.state.password}
+                    changed={this.handleChange} />
 
-                <div className="form-group">
-                    <label className="control-label">Confirm Password</label>
-                    <input className="form-control"
-                           type="text"
-                           name="passwordConfirmation"
-                           onChange={this.handleChange}
-                           value={this.state.passwordConfirmation} />
-                </div>
+                <TextField
+                    label="Confirm Password"
+                    type="text"
+                    name="passwordConfirmation"
+                    value={this.state.passwordConfirmation}
+                    changed={this.handleChange} />
 
-                <div className="form-group">
-                    <label className="control-label">Email</label>
-                    <input className="form-control"
-                           type="text"
-                           name="email"
-                           onChange={this.handleChange}
-                           value={this.state.email} />
-                </div>
+                <TextField
+                    label="Email"
+                    type="text"
+                    name="email"
+                    value={this.state.email}
+                    changed={this.handleChange} />
 
                 <div className="form-group">
                     <label className="control-label">Timezone</label>
@@ -102,7 +105,6 @@ class SignUp extends Component {
                            value={this.state.email}>
                     <option value="" disabled>Choose Your Timezone</option>
                     {options}
-
                     </select>
                 </div>
 

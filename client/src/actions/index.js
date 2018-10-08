@@ -10,7 +10,7 @@ export const fetchUser = (callback) => async dispatch => {
 }
 
 export const signUpUser = (gredentials, callback) => async dispatch => {
-    const res = await axios.post('/auth/signUpTest', gredentials);
+    const res = await axios.post('/auth/signup', gredentials);
     // console.log('inside the submit action', res);
     callback(res);
 

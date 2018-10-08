@@ -19,6 +19,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/signup', validateBody(schemas.authSchema), (req, res, next) => {
     UserController.signUp(req, res, next);
+    // res.status(200).json({ message: 'SignUp ok' });
 })
 
 router.post('/signin', validateBody(schemas.authSchema), passportSignIn, (req, res, next) => {
@@ -40,7 +41,7 @@ router.post('/signUpTest', validateBody(schemas.authSchema), (req, res, next) =>
     setTimeout(() => {
       console.log('inside the signup testing route', req.body);
       res.status('200').json({ message: 'ok' });
-  }, 5000);
+  }, 2000);
 
 })
 

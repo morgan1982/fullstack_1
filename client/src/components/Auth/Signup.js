@@ -110,7 +110,7 @@ class SignUp extends Component {
 
 
                 <div className="form-group">
-                    <button disabled={this.state.isLoading} onClick={this.onSubmit}>Sign up</button>
+                    <button className="btn-form" disabled={this.state.isLoading} onClick={this.onSubmit}>Sign up</button>
                 </div>
             </div>
             )

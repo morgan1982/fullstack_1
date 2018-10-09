@@ -6,7 +6,10 @@ const passportConf = require('../../passport');
 const { validateBody, schemas } = require('../../helpers/routeHelpers');
 const UserController = require('../../controllers/users');
 
-const passportSignIn = passport.authenticate('local', { session: false });
+// const passportSignIn = passport.authenticate('local', { session: false }, (err, user) => {
+// 	console.log(`inside callback ${ user }`);
+// 	res.send()
+// });
 const passportJwt = passport.authenticate('jwt', { session: false });
 
 
@@ -22,9 +25,14 @@ router.post('/signup', validateBody(schemas.authSchema), (req, res, next) => {
     // res.status(200).json({ message: 'SignUp ok' });
 })
 
-router.post('/signin', validateBody(schemas.authSchema), passportSignIn, (req, res, next) => {
-    UserController.signIn(req, res, next);
+router.post('/signin', validateBody(schemas.authSchema), (req, res, next) => {
+	passport.authenticate('local', { session: false }, (err, user, info) => {
+		console.log(`inside the callback ${ user } ${ info.message }`);
+		res.json({ message: info.message });
+	})(req, res, next)
 })
+    // UserController.signIn(req, res, next);
+// })
 
 router.post('/signout', (req, res, next) => {
     res.send("sign out")

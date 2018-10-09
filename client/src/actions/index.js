@@ -15,3 +15,10 @@ export const signUpUser = (gredentials, callback) => async dispatch => {
     callback(res);
 
 }
+
+export const login = data => async dispatch => {
+    // console.log("inside login action", data);
+    const res = await axios.post('/auth/signin', data)
+    return res;
+
+}

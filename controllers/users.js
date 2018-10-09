@@ -63,6 +63,7 @@ module.exports = {
                                   user: userName,
                                   token })
         }catch(err) {
+            console.log(`error ${ err }`)
             next(err)
         }
     },

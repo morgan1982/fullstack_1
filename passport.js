@@ -52,14 +52,14 @@ passport.use(new LocalStrategy({
                     if(match) {
                         return done(null, rows[0]);
                     }
-                } else {
-                        return done(null, false);
+                } else { // if the user does not exist
+                        return done(null, false, { message: `user ${ user } does not exist` });
                     }
 
             })
 
         }catch(err){
-            done(error, false)
+            done(err, false)
         }
 
     }

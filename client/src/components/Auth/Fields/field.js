@@ -10,7 +10,7 @@ const textField = ({ label, type, name, value, changed }) => {
 			className="form-control"
 			type={type}
 			name={name}
-			onChange={(e) => changed(e)}
+			onChange={changed}
 			value={value}/>
 	</div>
 	)

@@ -55,7 +55,7 @@ module.exports = {
     signIn: async (req, res, next) => {
         try {
             // GENERATE THE TOKEN
-            const { user: {id, userName}} = req
+            const { id, userName } = req
             const token = signToken(id)
             console.log("Successfully signin")
 

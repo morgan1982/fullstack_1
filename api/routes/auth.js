@@ -6,10 +6,8 @@ const passportConf = require('../../passport');
 const { validateBody, schemas } = require('../../helpers/routeHelpers');
 const UserController = require('../../controllers/users');
 
-// const passportSignIn = passport.authenticate('local', { session: false }, (err, user) => {
-// 	console.log(`inside callback ${ user }`);
-// 	res.send()
-// });
+
+// const passportSignIn = passport.authenticate('local', { session: false })
 const passportJwt = passport.authenticate('jwt', { session: false });
 
 
@@ -27,18 +25,23 @@ router.post('/signup', validateBody(schemas.authSchema), (req, res, next) => {
 
 router.post('/signin', validateBody(schemas.authSchema), (req, res, next) => {
 	passport.authenticate('local', { session: false }, (err, user, info) => {
-		console.log(`inside the callback ${ user } ${ info.message }`);
-		res.json({ message: info.message });
+		if (err) throw new Error({message: 'db error' });
+		if (user) {
+			// console.log("inside the route", user);
+			// res.status(200).send('ok');
+			UserController.signIn(user, res, next);
+		}else {
+			res.json({ message: info.message });
+		}
+
 	})(req, res, next)
 })
-    // UserController.signIn(req, res, next);
-// })
 
 router.post('/signout', (req, res, next) => {
     res.send("sign out")
 })
 
-router.get('/secret',passportJwt, (req, res, next) => {
+router.get('/secret', passportJwt, (req, res, next) => {
 
   UserController.secret(req, res, next);
     // res.status(200).send("ok")

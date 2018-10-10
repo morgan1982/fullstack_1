@@ -50,6 +50,7 @@ passport.use(new LocalStrategy({
                         return done(null, false);
                     }
                     if(match) {
+                        console.log("inside passport", rows[0]);
                         return done(null, rows[0]);
                     }
                 } else { // if the user does not exist

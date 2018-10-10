@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 
+import setAuthorizationToken from './utils/setAuthorizationToken';
 
 
 const store = createStore(
@@ -17,6 +18,8 @@ const store = createStore(
     compose(applyMiddleware(reduxThunk),
             window.devToolsExtension ? window.devToolsExtension() : f =>f)
     );
+
+setAuthorizationToken(localStorage.jwtToken);
 
 ReactDOM.render(
                 <Provider store={store}>

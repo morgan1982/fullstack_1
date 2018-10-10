@@ -163,8 +163,10 @@ $background: rgba(224, 242, 242, .8);
                   display: none;
 
 
+
                   &.logged {
                     display: inline-block;
+                    animation: moveInRight 1s ease-out;
                   }
                     a {
                   font-weight: 700;

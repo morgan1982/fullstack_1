@@ -5,11 +5,15 @@ const _hash = require('../utils/hashPass');
 
 const { token_key } = require('../config/keys');
 
-const signToken = userId => {
+
+
+// token creator
+const signToken = (userId, userName ) => {
 
                 return JWT.sign({
                           iss: 'killerwhale_we_rock',
                           sub:  userId,
+                          user: userName,
                           iat: new Date().getTime(),
                           exp: new Date().setDate(new Date().getDate() * 1) // one day ahead
                         }, token_key);
@@ -56,7 +60,7 @@ module.exports = {
         try {
             // GENERATE THE TOKEN
             const { id, userName } = req
-            const token = signToken(id)
+            const token = signToken(id, userName)
             console.log("Successfully signin")
 
             res.status(200).json({message: "signed in!",

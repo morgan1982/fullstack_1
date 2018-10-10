@@ -1,14 +1,19 @@
 // for the login
-import { CHECK_AUTH } from '../actions/types';
+import { SET_CURRENT_USER } from '../actions/types';
+
+const initialState = {
+	isAuthenticated: false,
+	user: {}
+}
+
 
 export default function(state = null, { type, payload }) {
-    console.log("outside reduder", type, payload);
 
 
     switch (type) {
-        case CHECK_AUTH:
-            console.log("inside the auth reducer")
-            return payload || false;
+        case SET_CURRENT_USER:
+
+            return payload || false; // to return false instead of an empty object
         default:
             return state
 

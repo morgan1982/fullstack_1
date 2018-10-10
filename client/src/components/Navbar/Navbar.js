@@ -39,9 +39,28 @@ class  Navbar extends Component {
         }
     }
 
+    Admin = () => {
+
+        if (this.props.auth) {
+            if (this.props.auth.user) {
+                 return (
+                    // <li><Link to="/admin"><span>A</span>dmin</Link></li>
+                    "logged"
+                    )
+            } else {
+                return null
+            }
+        }
+
+    }
+// <li className={ this.checkAuth() }><Link to="/admin"><span>A</span>dmin</Link></li>
+
+// admin will be a protected route
+// if the users is not logged in will redirect to login
+// otherwhise it will show the admin
 
     render () {
-
+        console.log(this.props);
 
         const toggle = this.state.toggled ? "active" : "pasive";
         // const adminLogged = this.state.logged ? "logged" : "";
@@ -64,7 +83,7 @@ class  Navbar extends Component {
                     <li><Link to="/contact"><span>C</span>ontact</Link></li>
                     <li><Link to="/about"><span>A</span>bout</Link></li>
                     <li><Link to="/test"><span>T</span>est</Link></li>
-                    <li className={ this.checkAuth() }><Link to="/admin"><span>A</span>dmin</Link></li>
+                    <li className={this.Admin()}><Link to="/admin"><span>A</span>dmin</Link></li>
                 </ul>
             </nav>
         </div>

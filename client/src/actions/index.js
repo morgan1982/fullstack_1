@@ -26,6 +26,7 @@ export const login = data => async dispatch => {
 	const res = await axios.post('/auth/signin', data);
 
     const { token } = res.data;
+    console.log("to ckeck for error", res);
     localStorage.setItem('jwtToken', token); // saves the token to localstorage
     setAuthorizationToken(token); // sets the token to headers
     let decodedToken = jwt.decode(token);

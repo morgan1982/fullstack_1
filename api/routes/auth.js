@@ -31,7 +31,7 @@ router.post('/signin', validateBody(schemas.authSchema), (req, res, next) => {
 			// res.status(200).send('ok');
 			UserController.signIn(user, res, next);
 		}else {
-			res.json({ message: info.message });
+			res.status(401).json({ message: info.message });
 		}
 
 	})(req, res, next)

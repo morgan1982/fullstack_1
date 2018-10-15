@@ -12,8 +12,8 @@ class Login extends Component {
 
     state = {
 		username: '',
-    	password: '',
-    	isLoading: false,
+		password: '',
+		isLoading: false,
         redirect: false
     }
 

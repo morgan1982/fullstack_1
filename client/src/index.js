@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 
-import setAuthorizationToken from './utils/setAuthorizationToken';
+import setAuthorizationToken from './utils/setAuthorizationToken'; // set and unsets the token to the header
 
 
 const store = createStore(

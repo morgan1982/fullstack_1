@@ -43,7 +43,7 @@ passport.use(new LocalStrategy({
             pool.query(sql, [user], async (err, rows, fields) => {
                 if (err) throw new Error(err);
 
-                if (rows.length > 0) {
+                if (rows.length > 0) { // if the query return a user
                     let { pass } = rows[0]
                     const match = await bcrypt.compare(password, pass); // pass -- hashPass
                     if (!match) {

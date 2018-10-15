@@ -56,7 +56,7 @@ module.exports = {
         }
     },
 
-    signIn: async (req, res, next) => {
+    signIn: async (req, res, next) => { // user greds are hold on request
         try {
             // GENERATE THE TOKEN
             const { id, userName } = req

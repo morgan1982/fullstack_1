@@ -1,0 +1,25 @@
+○ to mount with metadata
+create file wsl.conf inside /etc
+
+[automount]
+enabled = true
+options = "metadata"
+mountFsTab = false
+
+
+unix permissions
+4 for read
+2 for write
+1 for execute
+
+first octet is for owner
+second octet is for group
+third octet is for everyone else
+
+
+• tyo change the home directory
+/etc/passwd
+
+
+• to reload zsh after change to the rc file
+->source ~/.zshrc
